@@ -54,7 +54,8 @@ const start = function() {
     console.log('Game is starting...');
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
-    console.log(playerSelection);
+    console.log('Player: '+playerSelection);
+    console.log('Computer: '+computerSelection);
     winner = getWinner(computerSelection, playerSelection);
     console.log(winner);
 };
