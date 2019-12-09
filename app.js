@@ -56,10 +56,12 @@ const start = () => {
   if (playerSelection) {
     winner = getWinner(computerSelection, playerSelection);
   } else {
-      winner = getWinner(computerSelection);
+    winner = getWinner(computerSelection);
   }
-  
-  let message = `You picked ${playerSelection ? playerSelection : DEFAULT_USER_CHOICE}, computer picked ${computerSelection}, `;
+
+  let message = `You picked ${
+    playerSelection ? playerSelection : DEFAULT_USER_CHOICE
+  }, computer picked ${computerSelection}, `;
   if (winner === RESULT_DRAW) {
     message = message + `therefore you had a draw.`;
   } else if (winner === RESULT_PLAYER_WINS) {
@@ -72,3 +74,15 @@ const start = () => {
 };
 
 startGameBtn.addEventListener('click', start);
+
+//not related to game
+
+const sumUp = (...numbers) => {
+  let sum = 0;
+  for (const num of numbers) {
+    sum += num;
+  }
+  return sum;
+}
+
+console.log(sumUp(1,5,10,-3,6,10));
