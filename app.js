@@ -13,6 +13,7 @@ let computerSelection = '';
 let winner = '';
 let gameIsRunnning = false;
 
+//get player's choice
 const getPlayerChoice = () => {
   const selection = prompt(`${ROCK}, ${PAPER}, ${SCISSORS}?`, '').toUpperCase();
   if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
@@ -22,6 +23,7 @@ const getPlayerChoice = () => {
   return selection;
 };
 
+//get computer's choice
 const getComputerChoice = () => {
   const randomValue = Math.random();
   if (randomValue < 0.34) {
@@ -33,6 +35,7 @@ const getComputerChoice = () => {
   }
 };
 
+//get winner
 const getWinner = (cChoice, pChoice = DEFAULT_USER_CHOICE) => {
   return cChoice === pChoice
     ? RESULT_DRAW
@@ -43,6 +46,7 @@ const getWinner = (cChoice, pChoice = DEFAULT_USER_CHOICE) => {
     : RESULT_COMPUTER_WINS;
 };
 
+//start function when clicking on the start button
 const start = () => {
   if (gameIsRunnning) {
     return;
@@ -73,10 +77,10 @@ const start = () => {
   gameIsRunnning = false;
 };
 
+//add a event listener to start game button
 startGameBtn.addEventListener('click', start);
 
 //not related to game
-
 const sumUp = (resultHandler, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
