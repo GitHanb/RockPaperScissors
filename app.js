@@ -81,19 +81,25 @@ const start = () => {
 startGameBtn.addEventListener('click', start);
 
 //not related to game
-const sumUp = (resultHandler, ...numbers) => {
+const combine = (resultHandler, operation, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
   };
   let sum = 0;
   for (const num of numbers) {
-    sum += validateNumber(num);
+    if (operation === 'ADD') {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+    }
+    
   }
   resultHandler(sum);
 }
 
-const showResult = (result) => {
-  alert('The result after adding all numbers is: ' + result);
+const showResult = (messageText, result) => {
+  alert(messageText + ' ' + result);
 }
 
-console.log(sumUp(showResult, 1,5,10,-3,6,10));
+combine(showResult.bind(this, 'The result after adding all number is:'), 'ADD', 1,5,10,-3,6,10);
+combine(showResult.bind(this, 'The result after subtracting all number is:'), 'SUBTRACT', 1, 10, 15, 20);
